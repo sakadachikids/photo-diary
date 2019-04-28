@@ -6,7 +6,8 @@ import GridListTileBar from "@material-ui/core/GridListTileBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
-import { AppBar, Typography } from "@material-ui/core";
+import { AppBar, Typography, Fab } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -26,6 +27,12 @@ const styles = (theme: Theme) =>
     },
     appBar: {
       marginBottom: "16px"
+    },
+    fab: {
+      position: "absolute",
+      bottom: theme.spacing.unit * 2,
+      right: theme.spacing.unit * 2,
+      color: "white"
     }
   });
 
@@ -61,6 +68,9 @@ const Home = (props: Prop) => {
           </GridListTile>
         ))}
       </GridList>
+      <Fab color="secondary" size="medium" className={classes.fab}>
+        <AddIcon fontSize="large" />
+      </Fab>
     </div>
   );
 };
