@@ -25,33 +25,9 @@ const styles = (theme: Theme) =>
     }
   });
 
-const tileData: any[] = [
-  {
-    img: require("../icon-192x192.png"),
-    title: "test",
-    author: "test"
-  }
-];
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
-
 interface Prop {
   classes: { [type: string]: string };
+  tileData: PhotoData[];
 }
 
 const Home = (props: Prop) => {
@@ -62,7 +38,7 @@ const Home = (props: Prop) => {
         <GridListTile key="Subheader" cols={2} style={{ height: "auto" }}>
           <ListSubheader component="div">December</ListSubheader>
         </GridListTile>
-        {tileData.map(tile => (
+        {props.tileData.map(tile => (
           <GridListTile key={tile.img}>
             <img src={tile.img} alt={tile.title} />
             <GridListTileBar
