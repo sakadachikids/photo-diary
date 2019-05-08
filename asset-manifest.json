@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-pwa-boilerplate/static/css/main.42cc8b22.chunk.css",
-    "main.js": "/react-pwa-boilerplate/static/js/main.7633fe6c.chunk.js",
-    "main.js.map": "/react-pwa-boilerplate/static/js/main.7633fe6c.chunk.js.map",
-    "runtime~main.js": "/react-pwa-boilerplate/static/js/runtime~main.1bac7cf8.js",
-    "runtime~main.js.map": "/react-pwa-boilerplate/static/js/runtime~main.1bac7cf8.js.map",
-    "static/js/2.92b8ff86.chunk.js": "/react-pwa-boilerplate/static/js/2.92b8ff86.chunk.js",
-    "static/js/2.92b8ff86.chunk.js.map": "/react-pwa-boilerplate/static/js/2.92b8ff86.chunk.js.map",
-    "static/js/3.6c0b776e.chunk.js": "/react-pwa-boilerplate/static/js/3.6c0b776e.chunk.js",
-    "static/js/3.6c0b776e.chunk.js.map": "/react-pwa-boilerplate/static/js/3.6c0b776e.chunk.js.map",
-    "index.html": "/react-pwa-boilerplate/index.html",
-    "precache-manifest.eb8daed106910a8022a11f50a3fccb3e.js": "/react-pwa-boilerplate/precache-manifest.eb8daed106910a8022a11f50a3fccb3e.js",
-    "service-worker.js": "/react-pwa-boilerplate/service-worker.js",
-    "static/css/main.42cc8b22.chunk.css.map": "/react-pwa-boilerplate/static/css/main.42cc8b22.chunk.css.map"
+    "main.css": "/photo-diary/static/css/main.42cc8b22.chunk.css",
+    "main.js": "/photo-diary/static/js/main.90ba423c.chunk.js",
+    "main.js.map": "/photo-diary/static/js/main.90ba423c.chunk.js.map",
+    "runtime~main.js": "/photo-diary/static/js/runtime~main.2d3b5f59.js",
+    "runtime~main.js.map": "/photo-diary/static/js/runtime~main.2d3b5f59.js.map",
+    "static/js/2.92b8ff86.chunk.js": "/photo-diary/static/js/2.92b8ff86.chunk.js",
+    "static/js/2.92b8ff86.chunk.js.map": "/photo-diary/static/js/2.92b8ff86.chunk.js.map",
+    "static/js/3.6c0b776e.chunk.js": "/photo-diary/static/js/3.6c0b776e.chunk.js",
+    "static/js/3.6c0b776e.chunk.js.map": "/photo-diary/static/js/3.6c0b776e.chunk.js.map",
+    "index.html": "/photo-diary/index.html",
+    "precache-manifest.07583f5fc152541d1418b529bd7e5def.js": "/photo-diary/precache-manifest.07583f5fc152541d1418b529bd7e5def.js",
+    "service-worker.js": "/photo-diary/service-worker.js",
+    "static/css/main.42cc8b22.chunk.css.map": "/photo-diary/static/css/main.42cc8b22.chunk.css.map"
   }
 }
