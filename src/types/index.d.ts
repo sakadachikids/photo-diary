@@ -1,5 +1,6 @@
-type PhotoData = {
-  img: any;
+type Diary = {
+  id: string;
   title: string;
-  author: string;
+  description: string;
+  img: any;
 };

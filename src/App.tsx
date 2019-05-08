@@ -1,5 +1,6 @@
 import React from "react";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { DiaryProvider } from "./diary";
 import Home from "./containers/Home";
 
 const theme = createMuiTheme({
@@ -12,7 +13,9 @@ const theme = createMuiTheme({
 const App: React.FC = () => {
   return (
     <MuiThemeProvider theme={theme}>
-      <Home />
+      <DiaryProvider>
+        <Home />
+      </DiaryProvider>
     </MuiThemeProvider>
   );
 };

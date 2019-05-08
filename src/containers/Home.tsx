@@ -1,13 +1,14 @@
 import React from "react";
-import Home from "../components/Home";
+import DiaryList from "../components/DiaryList";
+import AddDiary from "./AddDiary";
+import { useDiaryContext } from "../diary";
 
 export default () => {
-  const tileData: PhotoData[] = [
-    {
-      img: require("../icon-192x192.png"),
-      title: "test",
-      author: "test"
-    }
-  ];
-  return <Home tileData={tileData} />;
+  const { diaries } = useDiaryContext();
+  return (
+    <React.Fragment>
+      <DiaryList diaries={diaries} />
+      <AddDiary />
+    </React.Fragment>
+  );
 };

@@ -10,10 +10,17 @@
     "@types/node": "11.13.8",
     "@types/react": "16.8.14",
     "@types/react-dom": "16.8.4",
+    "@types/uuid": "^3.4.4",
+    "constate": "^1.1.1",
+    "keyboardjs": "^2.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
-    "typescript": "3.4.5"
+    "react-use": "^8.3.1",
+    "rebound": "^0.1.0",
+    "typescript": "3.4.5",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,7 +28,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
-    "lint": "eslint ./src/**/*.ts ./src/**/*.tsx"
+    "lint": "eslint ./src/**/*.ts ./src/**/*.tsx",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "browserslist": {
     "production": [
@@ -36,6 +45,13 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "@types/storybook__addon-actions": "^3.4.2",
+    "@types/storybook__addon-links": "^3.3.4",
+    "@types/storybook__react": "^4.0.1",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "eslint-config-prettier": "^4.2.0",
     "eslint-config-react-app": "^4.0.0",
