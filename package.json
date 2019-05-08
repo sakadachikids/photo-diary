@@ -1,7 +1,7 @@
 {
-  "name": "react-pwa-boilerplate",
+  "name": "photo-diary",
   "version": "0.1.0",
-  "homepage": "/react-pwa-boilerplate",
+  "homepage": "/photo-diary",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
