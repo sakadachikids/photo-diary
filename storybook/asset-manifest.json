@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/react-pwa-boilerplate/main.766d7b86424d1e033757.bundle.js",
+    "main.js.map": "/react-pwa-boilerplate/main.766d7b86424d1e033757.bundle.js.map",
+    "runtime~main.js": "/react-pwa-boilerplate/runtime~main.766d7b86424d1e033757.bundle.js",
+    "runtime~main.js.map": "/react-pwa-boilerplate/runtime~main.766d7b86424d1e033757.bundle.js.map",
+    "vendors~main.js": "/react-pwa-boilerplate/vendors~main.766d7b86424d1e033757.bundle.js",
+    "vendors~main.js.map": "/react-pwa-boilerplate/vendors~main.766d7b86424d1e033757.bundle.js.map",
+    "iframe.html": "/react-pwa-boilerplate/iframe.html",
+    "precache-manifest.fe8fa6eaad70700cc43fd25504971a04.js": "/react-pwa-boilerplate/precache-manifest.fe8fa6eaad70700cc43fd25504971a04.js",
+    "service-worker.js": "/react-pwa-boilerplate/service-worker.js",
+    "static/media/icon-192x192.png": "/react-pwa-boilerplate/static/media/icon-192x192.66690dea.png"
+  }
+}
