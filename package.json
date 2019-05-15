@@ -12,6 +12,7 @@
     "@types/react-dom": "16.8.4",
     "@types/uuid": "^3.4.4",
     "constate": "^1.1.1",
+    "firebase": "4.12.1",
     "keyboardjs": "^2.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
