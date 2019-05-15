@@ -1,6 +1,5 @@
 import React from "react";
 import * as Mat from "@material-ui/core";
-import * as Icon from "@material-ui/icons";
 import DiaryListItem from "./DiaryListItem";
 
 const styles = (theme: Mat.Theme) =>

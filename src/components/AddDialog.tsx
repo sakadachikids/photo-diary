@@ -12,6 +12,10 @@ const styles = (theme: Theme) =>
   createStyles({
     appBar: {
       position: "relative"
+    },
+    grow: {
+      flexGrow: 1,
+      marginLeft: 8
     }
   });
 
@@ -41,19 +45,10 @@ const AddDialog = ({
     <Mat.Dialog {...props} fullScreen TransitionComponent={Transition}>
       <Mat.AppBar className={classes.appBar}>
         <Mat.Toolbar>
-          <Mat.IconButton
-            color="inherit"
-            aria-label="Close"
-            onClick={props.onClose}
-          >
-            <Icon.Close />
-          </Mat.IconButton>
-          <Mat.Typography variant="h6" color="inherit">
+          <Icon.Close onClick={props.onClose} />
+          <Mat.Typography variant="h6" color="inherit" className={classes.grow}>
             日記を作成する
           </Mat.Typography>
-          <Mat.Button onClick={onSaveButtonClick} color="inherit">
-            保存
-          </Mat.Button>
         </Mat.Toolbar>
       </Mat.AppBar>
       <Mat.List>
@@ -69,7 +64,6 @@ const AddDialog = ({
         <Mat.ListItem button>
           <Mat.TextField
             fullWidth
-            variant="filled"
             rowsMax="4"
             multiline
             id="description"
@@ -77,6 +71,19 @@ const AddDialog = ({
             value={description}
             onChange={onChangeText}
           />
+        </Mat.ListItem>
+        <Mat.ListItem button>
+          <input type="file" accept=".jpg, .jpeg, .png" />
+        </Mat.ListItem>
+        <Mat.ListItem button>
+          <Mat.Button
+            onClick={onSaveButtonClick}
+            color="primary"
+            variant="contained"
+            fullWidth
+          >
+            保存
+          </Mat.Button>
         </Mat.ListItem>
       </Mat.List>
     </Mat.Dialog>
