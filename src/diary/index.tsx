@@ -26,11 +26,6 @@ const useDiary = () => {
 export const useDiaryContext = createUseContext(useDiary);
 
 export const DiaryProvider = (props: any) => {
-  React.useEffect(() => {
-    (async () => {
-      // TODO: データをサーバーから取得する
-    })();
-  }, []);
   return (
     <div>
       <useDiaryContext.Provider {...props} />
