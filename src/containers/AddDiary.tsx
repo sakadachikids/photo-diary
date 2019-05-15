@@ -8,7 +8,7 @@ import { useDiaryContext } from "../diary";
 const getInitialState = (): Diary => ({
   title: "",
   description: "",
-  img: require("../icon-192x192.png"),
+  img: require("../assets/no_image.png"),
   id: uuid()
 });
 

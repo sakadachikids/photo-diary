@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import {
   createStyles,
   withStyles,
@@ -16,6 +16,10 @@ const styles = (theme: Theme) =>
     grow: {
       flexGrow: 1,
       marginLeft: 8
+    },
+    label: {
+      width: "100%",
+      color: "#6C6C6C"
     }
   });
 
@@ -41,6 +45,21 @@ const AddDialog = ({
   onSaveButtonClick,
   ...props
 }: Props) => {
+  const [imgSrc, setImgSrc] = React.useState(
+    require("./../assets/no_image.png")
+  );
+  const onChangeImage = (event: ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+    reader.onload = (event: ProgressEvent) => {
+      if (event && event.target) {
+        // @ts-ignore
+        setImgSrc(event.target.result);
+      }
+    };
+    if (event && event.target && event.target.files) {
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  };
   return (
     <Mat.Dialog {...props} fullScreen TransitionComponent={Transition}>
       <Mat.AppBar className={classes.appBar}>
@@ -72,8 +91,17 @@ const AddDialog = ({
             onChange={onChangeText}
           />
         </Mat.ListItem>
-        <Mat.ListItem button>
-          <input type="file" accept=".jpg, .jpeg, .png" />
+        <Mat.ListItem>
+          <label className={classes.label}>
+            写真を選択
+            <img src={imgSrc} width="100%" alt="select" />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={onChangeImage}
+              style={{ display: "none" }}
+            />
+          </label>
         </Mat.ListItem>
         <Mat.ListItem button>
           <Mat.Button
