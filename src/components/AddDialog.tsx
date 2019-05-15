@@ -31,29 +31,30 @@ type Props = React.ComponentProps<typeof Mat.Dialog> &
   WithStyles<typeof styles> & {
     title: string;
     description: string;
+    img: string;
     onChangeText?: NonNullable<
       React.ComponentProps<typeof Mat.TextField>["onChange"]
     >;
     onSaveButtonClick?: () => void;
+    changeImage?: (img: string) => void;
   };
 
 const AddDialog = ({
   classes,
   title,
   description,
+  img,
   onChangeText,
   onSaveButtonClick,
+  changeImage,
   ...props
 }: Props) => {
-  const [imgSrc, setImgSrc] = React.useState(
-    require("./../assets/no_image.png")
-  );
   const onChangeImage = (event: ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
     reader.onload = (event: ProgressEvent) => {
       if (event && event.target) {
         // @ts-ignore
-        setImgSrc(event.target.result);
+        changeImage(event.target.result);
       }
     };
     if (event && event.target && event.target.files) {
@@ -94,7 +95,7 @@ const AddDialog = ({
         <Mat.ListItem>
           <label className={classes.label}>
             写真を選択
-            <img src={imgSrc} width="100%" alt="select" />
+            <img src={img} width="100%" alt="select" />
             <input
               type="file"
               accept="image/*"

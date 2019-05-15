@@ -32,6 +32,12 @@ export default () => {
     },
     [editDiary]
   );
+  const changeImage = (img: string) => {
+    editDiary(prevState => ({
+      ...prevState,
+      img: img
+    }));
+  };
 
   return (
     <React.Fragment>
@@ -40,9 +46,11 @@ export default () => {
         open={open}
         title={editingDiary.title}
         description={editingDiary.description}
+        img={editingDiary.img}
         onChangeText={onChangeText}
         onClose={React.useCallback(() => toggle(false), [toggle])}
         onSaveButtonClick={onSaveButtonClick}
+        changeImage={changeImage}
       />
     </React.Fragment>
   );

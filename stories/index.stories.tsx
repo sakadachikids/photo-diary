@@ -35,5 +35,5 @@ storiesOf("Diary", module).add("DiaryListItem", () => (
 ));
 
 storiesOf("Diary", module).add("AddDialog", () => (
-  <AddDialog open title="title" description="description" />
+  <AddDialog open title="title" description="description" img="..." />
 ));
