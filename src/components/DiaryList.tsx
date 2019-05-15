@@ -13,17 +13,11 @@ const styles = (theme: Mat.Theme) =>
     },
     gridList: {
       width: 500,
-      height: 450
+      height: "100%"
     },
     appBar: {
       marginBottom: "16px",
       position: "relative"
-    },
-    fab: {
-      position: "absolute",
-      bottom: theme.spacing.unit * 2,
-      right: theme.spacing.unit * 2,
-      color: "white"
     }
   });
 

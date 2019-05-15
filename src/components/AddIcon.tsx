@@ -5,7 +5,7 @@ import * as Icon from "@material-ui/icons";
 const styles = (theme: Mat.Theme) =>
   Mat.createStyles({
     fab: {
-      position: "absolute",
+      position: "fixed",
       bottom: theme.spacing.unit * 2,
       right: theme.spacing.unit * 2,
       color: "white"
