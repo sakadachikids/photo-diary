@@ -39,7 +39,7 @@ const Home = (props: Prop) => {
       <Mat.AppBar position="static" className={classes.appBar}>
         <Mat.Toolbar>
           <Mat.Typography variant="h6" color="inherit">
-            Picture Diary
+            Photo Diary
           </Mat.Typography>
         </Mat.Toolbar>
       </Mat.AppBar>
