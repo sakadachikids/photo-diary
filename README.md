@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## firestoreのapi keyなどの設定方法
+プロジェクトルートに `.env` ファイルを作成。
+下記にそれぞれ必要な記述を足したものを `.env` に追記。
+`process.env.REACT_APP_API_KEY` のような形式でプロジェクト内で使用できるようになる。
+
+```
+REACT_APP_API_KEY=""
+REACT_APP_AUTH_DOMAIN=""
+REACT_APP_PROJECT_ID=""
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
