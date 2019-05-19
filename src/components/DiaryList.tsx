@@ -39,7 +39,7 @@ const Home = (props: Prop) => {
       </Mat.AppBar>
       <Mat.GridList cellHeight={180} className={classes.gridList}>
         {props.diaries.map(diary => (
-          <DiaryListItem diary={diary} />
+          <DiaryListItem key={diary.id} diary={diary} />
         ))}
       </Mat.GridList>
     </div>
