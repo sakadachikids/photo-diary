@@ -13,11 +13,8 @@ const styles = (theme: Mat.Theme) =>
     },
     gridList: {
       width: 500,
-      height: "100%"
-    },
-    appBar: {
-      marginBottom: "16px",
-      position: "relative"
+      height: "100%",
+      padding: "72px 0"
     }
   });
 
@@ -30,7 +27,7 @@ const Home = (props: Prop) => {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Mat.AppBar position="static" className={classes.appBar}>
+      <Mat.AppBar position="fixed">
         <Mat.Toolbar>
           <Mat.Typography variant="h6" color="inherit">
             Photo Diary
