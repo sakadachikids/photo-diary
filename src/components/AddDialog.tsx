@@ -105,7 +105,8 @@ const AddDialog = ({
         <div className={classes.photo}>
           <div className={classes.photoTitle}>
             <span>写真を選択</span>
-            <span className={classes.underline}>撮影する
+            <label className={classes.underline}>
+              撮影する
               <input
                 type="file"
                 accept="image/*"
@@ -113,7 +114,7 @@ const AddDialog = ({
                 style={{ display: "none" }}
                 capture="environment"
               />
-            </span>
+            </label>
           </div>
           <label className={classes.label}>
             <img src={img} width="100%" alt="select" />
