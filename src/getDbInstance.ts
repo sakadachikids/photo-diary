@@ -21,8 +21,8 @@ const initializeFCM = async () => {
   );
 
   await messaging.requestPermission();
-  // const token = await messaging.getToken();
-  // console.log(token);
+  const token = await messaging.getToken();
+  console.log(token);
 };
 
 initializeFCM();
