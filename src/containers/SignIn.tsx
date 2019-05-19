@@ -1,5 +1,4 @@
 import firebase from "firebase/app";
-import "firebaseui/dist/firebaseui.css";
 import React from "react";
 import * as Mat from "@material-ui/core";
 import {
@@ -8,6 +7,9 @@ import {
   Theme,
   WithStyles
 } from "@material-ui/core/styles";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import { PathName } from "./Routes";
+import { useLocalStorage } from "react-use";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -33,19 +35,43 @@ const styles = (theme: Theme) =>
     }
   });
 
-type Props = WithStyles<typeof styles>;
+type Props = WithStyles<typeof styles> & RouteComponentProps;
 
-const SignIn = ({ classes }: Props) => {
+const SignIn = withRouter(({ classes, history }: Props) => {
+  const [_, setUser] = useLocalStorage("user", null);
   const signIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase
       .auth()
       .signInWithRedirect(provider)
       .then(function(result) {
-        console.log(result);
+        history.push(PathName.HOME);
       });
   };
 
+  const initApp = () => {
+    firebase
+      .auth()
+      .getRedirectResult()
+      .then(function(result) {
+        if (result.credential) {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          var token = result.credential.accessToken;
+          // ...
+        }
+        // The signed-in user info.
+        if (result.user) {
+          setUser(result.user);
+          history.push(PathName.HOME);
+        } else {
+          history.push(PathName.SIGN_IN);
+        }
+      });
+  };
+
+  React.useEffect(() => {
+    initApp();
+  }, []);
   return (
     <div className={classes.container}>
       <div className={classes.title}>
@@ -58,6 +84,6 @@ const SignIn = ({ classes }: Props) => {
       </div>
     </div>
   );
-};
+});
 
 export default withStyles(styles)(SignIn);
