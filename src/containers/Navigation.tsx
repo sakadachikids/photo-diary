@@ -1,6 +1,6 @@
 import React from "react";
 import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
-import { Home as HomeIcon, ViewList } from "@material-ui/icons";
+import { Home as HomeIcon, ViewList, DirectionsRun } from "@material-ui/icons";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { PathName } from "./Routes";
 import {
@@ -9,6 +9,8 @@ import {
   Theme,
   WithStyles
 } from "@material-ui/core/styles";
+import firebase from "firebase";
+import { useLocalStorage } from "react-use";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -22,6 +24,17 @@ const styles = (theme: Theme) =>
 type Props = WithStyles<typeof styles> & RouteComponentProps;
 
 const Navigation = withRouter(({ history, location, classes }: Props) => {
+  const [, setUser] = useLocalStorage("user", null);
+  const signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(function(result) {
+        console.info(result);
+        setUser(null);
+        history.push(PathName.SIGN_IN);
+      });
+  };
   return (
     <>
       {location.pathname !== PathName.SIGN_IN && (
@@ -35,6 +48,11 @@ const Navigation = withRouter(({ history, location, classes }: Props) => {
             label="All"
             icon={<ViewList />}
             onClick={() => history.push(PathName.ALL)}
+          />
+          <BottomNavigationAction
+            label="SignOut"
+            icon={<DirectionsRun />}
+            onClick={signOut}
           />
         </BottomNavigation>
       )}
