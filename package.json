@@ -24,14 +24,15 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
     "lint": "eslint ./src/**/*.ts ./src/**/*.tsx",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "browser": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://localhost:3000 --allow-insecure-localhost --user-data-dir=/tmp"
   },
   "browserslist": {
     "production": [
@@ -58,6 +59,7 @@
     "eslint-config-react-app": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "gh-pages": "^2.0.1",
+    "node-fetch": "^2.6.0",
     "prettier": "^1.17.0"
   }
 }
