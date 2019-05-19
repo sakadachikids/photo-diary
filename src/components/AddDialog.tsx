@@ -101,6 +101,29 @@ const AddDialog = ({
               accept="image/*"
               onChange={onChangeImage}
               style={{ display: "none" }}
+              capture="environment"
+            />
+          </label>
+          <label className={classes.label}>
+            写真を撮影する
+            <img src={img} width="100%" alt="select" />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={onChangeImage}
+              style={{ display: "none" }}
+              capture="environment"
+            />
+          </label>
+          <label className={classes.label}>
+            写真を撮影する(インカメラ)
+            <img src={img} width="100%" alt="select" />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={onChangeImage}
+              style={{ display: "none" }}
+              capture="user"
             />
           </label>
         </Mat.ListItem>

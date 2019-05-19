@@ -1,7 +1,6 @@
 {
   "name": "photo-diary",
   "version": "0.1.0",
-  "homepage": "/photo-diary",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
@@ -10,9 +9,11 @@
     "@types/node": "11.13.8",
     "@types/react": "16.8.14",
     "@types/react-dom": "16.8.4",
+    "@types/react-router-dom": "^4.3.3",
     "@types/uuid": "^3.4.4",
     "constate": "^1.1.1",
     "firebase": "4.12.1",
+    "firebaseui": "^4.0.0",
     "keyboardjs": "^2.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
