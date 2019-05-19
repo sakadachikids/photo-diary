@@ -1,7 +1,8 @@
 import React from "react";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { DiaryProvider } from "./diary";
-import Home from "./containers/Home";
+import { HashRouter as Router } from "react-router-dom";
+import Routes from "./Routes";
 
 const theme = createMuiTheme({
   palette: {
@@ -14,7 +15,9 @@ const App: React.FC = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <DiaryProvider>
-        <Home />
+        <Router>
+          <Routes />
+        </Router>
       </DiaryProvider>
     </MuiThemeProvider>
   );

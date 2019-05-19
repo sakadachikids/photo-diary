@@ -10,6 +10,7 @@
     "@types/node": "11.13.8",
     "@types/react": "16.8.14",
     "@types/react-dom": "16.8.4",
+    "@types/react-router-dom": "^4.3.3",
     "@types/uuid": "^3.4.4",
     "constate": "^1.1.1",
     "firebase": "4.12.1",
