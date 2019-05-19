@@ -9,8 +9,6 @@ import {
 } from "@material-ui/core/styles";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { PathName } from "./Routes";
-import { useLocalStorage } from "react-use";
-import getDbInstance from "../getDbInstance";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -39,7 +37,6 @@ const styles = (theme: Theme) =>
 type Props = WithStyles<typeof styles> & RouteComponentProps;
 
 const SignIn = withRouter(({ classes, history }: Props) => {
-  const [_, setUser] = useLocalStorage("user", null);
   const signIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase
@@ -50,37 +47,6 @@ const SignIn = withRouter(({ classes, history }: Props) => {
       });
   };
 
-  const initApp = () => {
-    firebase
-      .auth()
-      .getRedirectResult()
-      .then(function(result) {
-        if (result.credential) {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          // const token = result.credential.accessToken;
-        }
-        // The signed-in user info.
-        if (result.user) {
-          setUser(result.user);
-          const user = {
-            email: result.user.email,
-            photo: result.user.photoURL,
-            id: result.user.uid
-          };
-          const db = getDbInstance();
-          db.collection("users")
-            .doc(result.user.uid)
-            .set(user);
-          history.push(PathName.HOME);
-        } else {
-          history.push(PathName.SIGN_IN);
-        }
-      });
-  };
-
-  React.useEffect(() => {
-    initApp();
-  }, []);
   return (
     <div className={classes.container}>
       <div className={classes.title}>
