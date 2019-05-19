@@ -17,7 +17,9 @@ const useDiary = () => {
   }, [db]);
 
   const addDiary = (diary: Diary) => {
-    db.collection("diaries").add(diary);
+    db.collection("diaries")
+      .doc(diary.id)
+      .set({ ...diary });
     setDiaries(prevState => [...prevState, diary]);
   };
   return { diaries, addDiary };
