@@ -3,6 +3,7 @@ import DiaryList from "../components/DiaryList";
 import AddDiary from "./AddDiary";
 import { useDiaryContext } from "../diary";
 import { useLocalStorage } from "react-use";
+import { initializeFCM } from "../getDbInstance";
 
 export default () => {
   const { diaries } = useDiaryContext();
@@ -10,7 +11,10 @@ export default () => {
   const [user] = useLocalStorage("user", null);
   React.useEffect(() => {
     console.log(user);
-  }, []);
+    if (user) {
+      initializeFCM(user);
+    }
+  }, [user]);
 
   return (
     <React.Fragment>
