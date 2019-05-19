@@ -5,12 +5,6 @@ import * as admin from "firebase-admin";
 admin.initializeApp(functions.config().firebase);
 const firestore = admin.firestore();
 
-const registrationTokens = [
-  "d9VADkM7FG4:APA91bG9svQ-Ws03ox5ismNI_YloxnFImJ0UJ2fpzXOq8ifocd2QzdIOSA_NTOIrQWLOAIW6nz04OLfVhgVrN8HsHiyueM96MkICKhzcHPTFwNv4dNjpNzyCQTOnm-eP3wDC-6MGh6Mq"
-];
-
-const topicName = "diary";
-
 // Push通知を打つ
 exports.sendNotifications = functions.firestore
   .document("/diaries/{diaryId}")
@@ -31,14 +25,14 @@ exports.sendNotifications = functions.firestore
         // 取得できたらここが呼ばれる
         const data = message.data();
         // @ts-ignore
-        const uid = data.id;
-        // @ts-ignore
         const messageName = data.title;
+        // @ts-ignore
+        const messageDescription = data.description;
 
         const payload = {
           notification: {
-            title: "テスト",
-            body: messageName
+            title: messageName,
+            body: messageDescription
           }
         };
 
@@ -66,16 +60,13 @@ exports.sendNotifications = functions.firestore
 // @ts-ignore
 exports.addTopic = functions.firestore
   .document("/users/{userId}")
-  .onCreate((event, snapshot) => {
+  .onUpdate((event, snapshot) => {
+    const fcmTokenId = snapshot.params.fcmToken;
+    const topicName = "diary";
+
     admin
       .messaging()
-      .subscribeToTopic(registrationTokens, topicName)
-      .then(function(response) {
-        // See the MessagingTopicManagementResponse reference documentation
-        // for the contents of response.
-        console.log("Successfully subscribed to topic:", response);
-      })
-      .catch(function(error) {
-        console.log("Error subscribing to topic:", error);
-      });
+      .subscribeToTopic(fcmTokenId, topicName)
+      .then(function(response) {})
+      .catch(function(error) {});
   });

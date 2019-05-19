@@ -68,7 +68,9 @@ const SignIn = withRouter(({ classes, history }: Props) => {
             id: result.user.uid
           };
           const db = getDbInstance();
-          db.collection("users").add(user);
+          db.collection("users")
+            .doc(result.user.uid)
+            .set(user);
           history.push(PathName.HOME);
         } else {
           history.push(PathName.SIGN_IN);
