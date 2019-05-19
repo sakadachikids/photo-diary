@@ -17,9 +17,19 @@ const styles = (theme: Theme) =>
       flexGrow: 1,
       marginLeft: 8
     },
-    label: {
-      width: "100%",
+    photoTitle: {
+      display: "flex",
+      justifyContent: "space-between",
       color: "#6C6C6C"
+    },
+    underline: {
+      textDecoration: "underline"
+    },
+    photo: {
+      margin: "0 16px"
+    },
+    label: {
+      width: "100%"
     }
   });
 
@@ -92,41 +102,29 @@ const AddDialog = ({
             onChange={onChangeText}
           />
         </Mat.ListItem>
-        <Mat.ListItem>
+        <div className={classes.photo}>
+          <div className={classes.photoTitle}>
+            <span>写真を選択</span>
+            <span className={classes.underline}>撮影する
+              <input
+                type="file"
+                accept="image/*"
+                onChange={onChangeImage}
+                style={{ display: "none" }}
+                capture="environment"
+              />
+            </span>
+          </div>
           <label className={classes.label}>
-            写真を選択
             <img src={img} width="100%" alt="select" />
             <input
               type="file"
               accept="image/*"
               onChange={onChangeImage}
               style={{ display: "none" }}
-              capture="environment"
             />
           </label>
-          <label className={classes.label}>
-            写真を撮影する
-            <img src={img} width="100%" alt="select" />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={onChangeImage}
-              style={{ display: "none" }}
-              capture="environment"
-            />
-          </label>
-          <label className={classes.label}>
-            写真を撮影する(インカメラ)
-            <img src={img} width="100%" alt="select" />
-            <input
-              type="file"
-              accept="image/*"
-              onChange={onChangeImage}
-              style={{ display: "none" }}
-              capture="user"
-            />
-          </label>
-        </Mat.ListItem>
+        </div>
         <Mat.ListItem button>
           <Mat.Button
             onClick={onSaveButtonClick}
