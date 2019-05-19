@@ -46,6 +46,8 @@ export default withRouter(({ history, location }: RouteComponentProps) => {
   React.useEffect(() => {
     if (!user) {
       initApp();
+    } else if (location.pathname === PathName.SIGN_IN) {
+      history.push(PathName.HOME);
     }
     // eslint-disable-next-line
   }, []);
