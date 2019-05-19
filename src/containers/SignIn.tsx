@@ -10,6 +10,7 @@ import {
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { PathName } from "./Routes";
 import { useLocalStorage } from "react-use";
+import getDbInstance from "../getDbInstance";
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -56,12 +57,18 @@ const SignIn = withRouter(({ classes, history }: Props) => {
       .then(function(result) {
         if (result.credential) {
           // This gives you a Google Access Token. You can use it to access the Google API.
-          var token = result.credential.accessToken;
-          // ...
+          // const token = result.credential.accessToken;
         }
         // The signed-in user info.
         if (result.user) {
           setUser(result.user);
+          const user = {
+            email: result.user.email,
+            photo: result.user.photoURL,
+            id: result.user.uid
+          };
+          const db = getDbInstance();
+          db.collection("users").add(user);
           history.push(PathName.HOME);
         } else {
           history.push(PathName.SIGN_IN);
