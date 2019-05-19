@@ -2,9 +2,9 @@ import firebase from "firebase";
 import "firebase/firestore";
 
 firebase.initializeApp({
-  apiKey: "AIzaSyCmetKqyVejwmtCgdhQRg9Vpz7IN9xHNZU",
-  authDomain: "photo-diary-bd1a9.firebaseapp.com",
-  projectId: "photo-diary-bd1a9"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID
 });
 
 const getDbInstance = () => {
