@@ -1,53 +1,53 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent } from 'react'
 import {
   createStyles,
   withStyles,
   Theme,
   WithStyles
-} from "@material-ui/core/styles";
-import * as Mat from "@material-ui/core";
-import * as Icon from "@material-ui/icons";
+} from '@material-ui/core/styles'
+import * as Mat from '@material-ui/core'
+import * as Icon from '@material-ui/icons'
 
 const styles = (theme: Theme) =>
   createStyles({
     appBar: {
-      position: "relative"
+      position: 'relative'
     },
     grow: {
       flexGrow: 1,
       marginLeft: 8
     },
     photoTitle: {
-      display: "flex",
-      justifyContent: "space-between",
-      color: "#6C6C6C"
+      display: 'flex',
+      justifyContent: 'space-between',
+      color: '#6C6C6C'
     },
     underline: {
-      textDecoration: "underline"
+      textDecoration: 'underline'
     },
     photo: {
-      margin: "0 16px"
+      margin: '0 16px'
     },
     label: {
-      width: "100%"
+      width: '100%'
     }
-  });
+  })
 
 function Transition(props: any) {
-  return <Mat.Slide direction="up" {...props} />;
+  return <Mat.Slide direction="up" {...props} />
 }
 
 type Props = React.ComponentProps<typeof Mat.Dialog> &
   WithStyles<typeof styles> & {
-    title: string;
-    description: string;
-    img: string;
+    title: string
+    description: string
+    img: string
     onChangeText?: NonNullable<
-      React.ComponentProps<typeof Mat.TextField>["onChange"]
-    >;
-    onSaveButtonClick?: () => void;
-    changeImage?: (img: string) => void;
-  };
+      React.ComponentProps<typeof Mat.TextField>['onChange']
+    >
+    onSaveButtonClick?: () => void
+    changeImage?: (img: string) => void
+  }
 
 const AddDialog = ({
   classes,
@@ -60,17 +60,17 @@ const AddDialog = ({
   ...props
 }: Props) => {
   const onChangeImage = (event: ChangeEvent<HTMLInputElement>) => {
-    const reader = new FileReader();
+    const reader = new FileReader()
     reader.onload = (event: ProgressEvent) => {
       if (event && event.target) {
         // @ts-ignore
-        changeImage(event.target.result);
+        changeImage(event.target.result)
       }
-    };
-    if (event && event.target && event.target.files) {
-      reader.readAsDataURL(event.target.files[0]);
     }
-  };
+    if (event && event.target && event.target.files) {
+      reader.readAsDataURL(event.target.files[0])
+    }
+  }
   return (
     <Mat.Dialog {...props} fullScreen TransitionComponent={Transition}>
       <Mat.AppBar className={classes.appBar}>
@@ -111,7 +111,7 @@ const AddDialog = ({
                 type="file"
                 accept="image/*"
                 onChange={onChangeImage}
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 capture="environment"
               />
             </label>
@@ -122,7 +122,7 @@ const AddDialog = ({
               type="file"
               accept="image/*"
               onChange={onChangeImage}
-              style={{ display: "none" }}
+              style={{ display: 'none' }}
             />
           </label>
         </div>
@@ -138,7 +138,7 @@ const AddDialog = ({
         </Mat.ListItem>
       </Mat.List>
     </Mat.Dialog>
-  );
-};
+  )
+}
 
-export default withStyles(styles)(AddDialog);
+export default withStyles(styles)(AddDialog)
