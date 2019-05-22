@@ -1,20 +1,20 @@
-import React from "react";
-import DiaryList from "../components/DiaryList";
-import AddDiary from "./AddDiary";
-import { useDiaryContext } from "../diary";
-import { useLocalStorage } from "react-use";
-import { initializeFCM } from "../getDbInstance";
+import React from 'react'
+import DiaryList from '../components/DiaryList'
+import AddDiary from './AddDiary'
+import { useDiaryContext } from '../diary'
+import { useLocalStorage } from 'react-use'
+import { initializeFCM } from '../getDbInstance'
 
 export default () => {
-  const { diaries } = useDiaryContext();
+  const { diaries } = useDiaryContext()
 
-  const [user] = useLocalStorage("user", null);
+  const [user] = useLocalStorage('user', null)
   React.useEffect(() => {
-    console.log(user);
+    console.log(user)
     if (user) {
-      initializeFCM(user);
+      initializeFCM(user)
     }
-  }, [user]);
+  }, [user])
 
   return (
     <React.Fragment>
@@ -23,5 +23,5 @@ export default () => {
         <AddDiary />
       </React.Fragment>
     </React.Fragment>
-  );
-};
+  )
+}

@@ -1,30 +1,30 @@
-import React from "react";
-import * as Mat from "@material-ui/core";
-import DiaryListItem from "./DiaryListItem";
+import React from 'react'
+import * as Mat from '@material-ui/core'
+import DiaryListItem from './DiaryListItem'
 
 const styles = (theme: Mat.Theme) =>
   Mat.createStyles({
     root: {
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "space-around",
-      overflow: "hidden",
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-around',
+      overflow: 'hidden',
       backgroundColor: theme.palette.background.paper
     },
     gridList: {
       width: 500,
-      height: "100%",
-      padding: "72px 0"
+      height: '100%',
+      padding: '72px 0'
     }
-  });
+  })
 
 type Prop = Mat.WithStyles<typeof styles> & {
-  classes: { [type: string]: string };
-  diaries: Diary[];
-};
+  classes: { [type: string]: string }
+  diaries: Diary[]
+}
 
 const Home = (props: Prop) => {
-  const { classes } = props;
+  const { classes } = props
   return (
     <div className={classes.root}>
       <Mat.AppBar position="fixed">
@@ -40,7 +40,7 @@ const Home = (props: Prop) => {
         ))}
       </Mat.GridList>
     </div>
-  );
-};
+  )
+}
 
-export default Mat.withStyles(styles)(Home);
+export default Mat.withStyles(styles)(Home)
