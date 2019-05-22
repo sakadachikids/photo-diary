@@ -12,5 +12,14 @@ module.exports = {
     sourceType: "module",
     project: "./tsconfig.json"
   },
-  rules: {}
+  rules: {
+    semi: [2, 'never'],
+    'prettier/prettier': [
+      'error',
+      {
+        semi: false,
+        singleQuote: true
+      }
+    ]
+  }
 };

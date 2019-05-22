@@ -1,18 +1,18 @@
-import React from "react";
-import * as Mat from "@material-ui/core";
-import * as Icon from "@material-ui/icons";
+import React from 'react'
+import * as Mat from '@material-ui/core'
+import * as Icon from '@material-ui/icons'
 
 const styles = (theme: Mat.Theme) =>
   Mat.createStyles({
     icon: {
-      color: "rgba(255, 255, 255, 0.54)"
+      color: 'rgba(255, 255, 255, 0.54)'
     }
-  });
+  })
 
 type Props = React.ComponentProps<typeof Mat.GridListTile> &
   Mat.WithStyles<typeof styles> & {
-    diary: Diary;
-  };
+    diary: Diary
+  }
 
 export default Mat.withStyles(styles)(({ diary, classes, ...props }: Props) => {
   return (
@@ -28,5 +28,5 @@ export default Mat.withStyles(styles)(({ diary, classes, ...props }: Props) => {
         }
       />
     </Mat.GridListTile>
-  );
-});
+  )
+})

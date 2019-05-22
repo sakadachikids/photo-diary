@@ -1,20 +1,20 @@
-import React from "react";
-import { Route, withRouter, RouteComponentProps } from "react-router-dom";
-import Home from "./Home";
-import SignIn from "./SignIn";
-import All from "./All";
-import firebase from "firebase/app";
-import getDbInstance from "../getDbInstance";
-import { useLocalStorage } from "react-use";
+import React from 'react'
+import { Route, withRouter, RouteComponentProps } from 'react-router-dom'
+import Home from './Home'
+import SignIn from './SignIn'
+import All from './All'
+import firebase from 'firebase/app'
+import getDbInstance from '../getDbInstance'
+import { useLocalStorage } from 'react-use'
 
 export const PathName = {
-  HOME: "/",
-  ALL: "/all",
-  SIGN_IN: "/signin"
-};
+  HOME: '/',
+  ALL: '/all',
+  SIGN_IN: '/signin'
+}
 
 export default withRouter(({ history, location }: RouteComponentProps) => {
-  const [user, setUser] = useLocalStorage("user", null);
+  const [user, setUser] = useLocalStorage('user', null)
   const initApp = () => {
     firebase
       .auth()
@@ -26,28 +26,28 @@ export default withRouter(({ history, location }: RouteComponentProps) => {
         }
         // The signed-in user info.
         if (result.user) {
-          setUser(result.user);
+          setUser(result.user)
           const user = {
             email: result.user.email,
             photo: result.user.photoURL,
             id: result.user.uid
-          };
-          const db = getDbInstance();
-          db.collection("users")
+          }
+          const db = getDbInstance()
+          db.collection('users')
             .doc(result.user.uid)
-            .set(user);
-          history.push(PathName.HOME);
+            .set(user)
+          history.push(PathName.HOME)
         } else {
-          history.push(PathName.SIGN_IN);
+          history.push(PathName.SIGN_IN)
         }
-      });
-  };
+      })
+  }
 
   React.useEffect(() => {
     if (!user) {
-      initApp();
+      initApp()
     } else if (location.pathname === PathName.SIGN_IN) {
-      history.push(PathName.HOME);
+      history.push(PathName.HOME)
     }
     // eslint-disable-next-line
   }, []);
@@ -58,5 +58,5 @@ export default withRouter(({ history, location }: RouteComponentProps) => {
       <Route exact path={PathName.ALL} compoennt={All} />
       <Route exact path={PathName.SIGN_IN} component={SignIn} />
     </>
-  );
-});
+  )
+})
